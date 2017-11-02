@@ -100,7 +100,7 @@ multiple tasks (in the remainder, tasks are called
 \emph{invocations}). \boutiques descriptors are intented to be
 produced by scientific application developers, stored alongside their
 application, indexed by common repositories, and consumed by
-execution platforms.  A set of core tools facilitate the construction,
+execution platforms. A set of core tools facilitate the construction,
 validation, import, execution, and publishing of \boutiques
 descriptors.
 
@@ -268,7 +268,7 @@ and cumbersome whereas configuration files allow for better structure
 and documentation.
 
 Configuration files may be complex though, and specified in any
-language.  The \boutiques specification allows application developers
+language. The \boutiques specification allows application developers
 to specify their own template containing input and output value
 keys. Configuration files are specific types of output files that must
 have a file template in addition to a path template that defines how
@@ -313,7 +313,7 @@ optional inputs. %% Inputs of type ``String'' may contain any string,
 %% (absolute or relative to the execution directory) and inputs of type
 %% "Flag" must contain a boolean. 
 %% When input is a list, the value contains the concatenation of all the
-%%values in the list.
+%% values in the list.
 %% gk: I agree with not including the above
 Algorithm~\ref{algo:command-line} shows how the command line is
 constructed from the descriptor and the values entered by the user. It
@@ -475,6 +475,9 @@ referring to Docker containers to facilitate application integration
 by developers, and internally convert container images to Singularity
 to run applications efficiently on clusters.
 
+%% nb: In CBRAIN we leverage the ability of Singularity to pull and 
+%% convert Docker image directly.
+
 Container images are defined from their URL (rootfs) or image name in
 a Docker or Singularity index. Descriptors and container images may
 specify a working directory where the application has to be run,
@@ -619,6 +622,7 @@ integration modes are available:
     (\texttt{cbrain:inherits-from-class}) to the \boutiques descriptor
     to define the Ruby class that should be used as parent class for
     the application.
+  %% nb: Which tool use this ? 
   \item Ruby classes are generated from descriptors
     through an offline process and integrated in CBRAIN as any other
     application. This mode allows developers to customize applications
@@ -638,6 +642,8 @@ needs to write \boutiques invocations and communication happens
 through the file system, and it is also powerful as it enables the
 parallelization of complex workflows such as the FSL and Niak ones
 described later. 
+%% nb: The parralelization of FSL-randomise was removed in CBRAIN it 
+%% did not work properly, do we use the parralelization for other FSL tools
 
 We also introduced a new list mechanism in CBRAIN to facilitate the
 iteration of \boutiques applications on large sets of files. CBRAIN
@@ -840,6 +846,7 @@ particular platform and facilitates migration.  Although the
 motivating use cases were taken from neuroinformatics, our primary
 field of interest, nothing prevents the system from being used in a
 variety of other domains.
+
 
 \subsection{\boutiques descriptor}
 
